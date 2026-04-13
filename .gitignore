@@ -1,0 +1,17 @@
+venv/
+env/
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+.env
+.env.local
+.env.production
+.vscode/
+dist/
+build/
+*.egg-info/
+*.egg
+mongo_data/
