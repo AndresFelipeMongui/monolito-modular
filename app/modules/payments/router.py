@@ -17,9 +17,7 @@ def process_payment(
         db: Session = Depends(get_db),
         current_user: User = Depends(get_current_user),
 ):
-    order: Order | None = db.query(Order).filter(Order.id == data.order_id).first()
-    if not order:
-        raise HTTPException(status_code=404, detail="Pedido no encontrado")
+    order = get_order_by_id(db, data.order_id)
 
     if order.user_id != current_user.id:
         raise HTTPException(status_code=403, detail="No autorizado para pagar este pedido")
